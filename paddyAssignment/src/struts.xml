@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="com.login" extends="struts-default">
+
+		<action name="loginaction" class="com.login.LoginAction"
+			method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="success1">/admin.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="register" class="com.login.RegisterAction"
+			method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="viewStock" class="com.login.DisplayStock"
+			method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="updateStock" class="com.login.Success"
+			method="execute">
+			<result name="success">/updateStock.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="registerItem" class="com.login.UpdateStockAction"
+			method="execute">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="computers" class="com.login.ComputersAction"
+			method="execute">
+			<result name="success">/computers.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="phones" class="com.login.PhoneAction"
+			method="execute">
+			<result name="success">/computers.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="tv" class="com.login.TvAction"
+			method="execute">
+			<result name="success">/computers.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="audio" class="com.login.AudioAction"
+			method="execute">
+			<result name="success">/computers.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="cable" class="com.login.CableAction"
+			method="execute">
+			<result name="success">/computers.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="selectedItems" class="com.login.SelectedItemsAction"
+			method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="logout" class="com.login.LogoutAction"
+			method="execute">
+			<result name="success">/index.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="addtobasket" class="com.login.AddToBasket"
+			method="execute">
+			<result name="success">/checkout.jsp</result>
+			<result name="success2">/nostockerror.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+			
+			</action>
+			
+			<action name="goback" class="com.login.SelectedItemsAction"
+			method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="proceedtocheckout" class="com.login.SelectedItemsAction"
+			method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="final" class="com.login.FinalCheckout"
+			method="execute">
+			<result name="success">/finalcheckout.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		<action name="updatedatabases" class="com.login.UpdateDatabaseAction"
+			method="execute">
+			<result name="success">/payment.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		
+		
+	   <action name="deletefromdatabase" class="com.login.DeleteFromOrderAction"
+			method="execute">
+			<result name="success">/finalcheckout.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		
+		
+
+		
+
+
+	</package>
+	
+	
+</struts>
