@@ -14,6 +14,12 @@
 	<s:form action="updateStock">
 		<s:submit value="Update Stock"></s:submit>
 	</s:form>
+	<s:form action="viewusers">
+		<s:submit value="View Usere"></s:submit>
+	</s:form>
+	<s:form action="updateStock">
+		<s:submit value="Update Stock"></s:submit>
+	</s:form>
 	
 	
 	

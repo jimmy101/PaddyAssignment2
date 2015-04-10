@@ -32,7 +32,7 @@ public class AddToBasket extends ActionSupport{
 	private int num;
 	
 	public String execute() {
-		
+		 ResultSet rs1;
 		String ret = ERROR;
 		Connection conn1 = null;
 		itemList =  new ArrayList<Item>();
@@ -46,18 +46,24 @@ public class AddToBasket extends ActionSupport{
 			 num =getId();
 			System.out.println(num+"bbbbbbbbbbbbbbb");
 			
-			//Statement st = conn1.createStatement(); 
-			//ResultSet rs = st.executeQuery();
-			
-//			PreparedStatement ps2=conn1.prepareStatement("select * from item where item_id = ? ");
-//			ps2.setInt(1,getItem_id());
-//			ResultSet rs = ps2.executeUpdate();
 			
 			 String sql = "SELECT * FROM item WHERE";
 	         sql+=" item_id = ? " ;
 	         PreparedStatement ps1 = conn1.prepareStatement(sql);
 	         ps1.setInt(1, getId());	        	 	         
-	         ResultSet rs1 = ps1.executeQuery();
+	          rs1 = ps1.executeQuery();
+	         
+	         PreparedStatement ps11=conn1.prepareStatement("insert into itemnumber values(?,?)");
+	         while(rs1.next()){
+	        	 System.out.println("sssssssssssssssss"+rs1.getInt(1));
+				ps11.setInt(1, rs1.getInt(1));
+				ps11.setInt(2, rs1.getInt(7));												
+				ps11.executeUpdate();
+	         }
+	         
+	        
+	        	 
+	        	 
 		       
 			Item ve = null;
 			while (rs1.next()) {
@@ -86,8 +92,8 @@ public class AddToBasket extends ActionSupport{
 				purchasesList.add(purchases);
 				
 				ret = SUCCESS;
-		
 			}
+	         
 		} catch (Exception e) {
 			ret = ERROR;
 		} finally {
