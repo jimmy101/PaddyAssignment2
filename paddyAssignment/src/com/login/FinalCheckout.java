@@ -71,7 +71,7 @@ public class FinalCheckout extends ActionSupport {
 			ResultSet rs1 = st1.executeQuery("select email from email ");
 			while (rs1.next()){
 				email2 = rs1.getString(1);
-				System.out.println(rs1.getString(1)+"QQQQQQQQQQQQQQQQQQQQQ");
+				//System.out.println(rs1.getString(1)+"QQQQQQQQQQQQQQQQQQQQQ");
 
 			}
 
@@ -81,9 +81,9 @@ public class FinalCheckout extends ActionSupport {
 			ResultSet rs12 = ps.executeQuery();
 
 			while (rs12.next()){
-				System.out.println(rs12.getString(1)+"QQQQQQQQQQQQQQQQQQQQQ");
+				System.out.println(rs12.getString(2)+"QQQQQQQQQQQQQQQQQQQQQ");
 				User user = new User();
-
+				user.setId(rs12.getInt(1));
 				user.setName(rs12.getString(2));
 				user.setAddress1(rs12.getString(3));
 				user.setAddress2(rs12.getString(4));

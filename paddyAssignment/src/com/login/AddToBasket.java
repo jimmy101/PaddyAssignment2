@@ -61,7 +61,7 @@ public class AddToBasket extends ActionSupport{
 				ve.setTitle(rs1.getString(2));
 				ve.setManufacturer(rs1.getString(3));
 				ve.setPrice(rs1.getFloat(4));
-				//ve.setQuantity(rs1.getInt(7));
+				ve.setQuantity(rs1.getInt(7));
 
 
 				itemList.add(ve);

@@ -9,11 +9,12 @@
 </head>
 <body>
 	FInal checkout page
-	<s:property value="manufacturer" />
+	<s:property value="#session.user.getId()" />
 	<div>
 		Postal address
 		<s:iterator value="userList">
 			<br>Name:<s:property value="name" />
+			<br>Customer id:<s:property value="id" />
 			<br></br>Address Line 1:<s:property value="address1" />
 			<br></br>Address Line 2:<s:property value="address2" />
 			<br></br>Address Line 3:<s:property value="address3" />
@@ -42,13 +43,26 @@
 	</div>
 	<br>
 	
+	<s:set var="varMsg1" value="%{#session.user.getName()}" />
+	<s:property value="varMsg"/>SSSSSSSSSSSSS
+	<s:property value="varMsg1"/>SSSSSSSSSSSSS
+	
 	<s:form action="deletefromdatabase">
 	<s:textfield name="purchases_id" label="Enter Item id" value=""/>
 	<br><s:submit value="Remove " align="left" />
 	</s:form>
 	
+	<div>
+	
+	<s:property value="#session.user.getName()"  />lllll
+	
 	<s:form action="updatedatabases">
+	<s:iterator value="userList">
+	
+	<s:property value="name"  />
+	</s:iterator>
 	<br><s:submit value="purchases" align="left" />
 	</s:form>
+	</div>
 </body>
 </html>

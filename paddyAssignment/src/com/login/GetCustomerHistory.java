@@ -27,7 +27,7 @@ public class GetCustomerHistory extends ActionSupport{
 				conn1 = DriverManager.getConnection(URL, "root", "root");
 				
 				Statement st1 = conn1.createStatement(); 
-				ResultSet rs1 = st1.executeQuery("select * from history where id = ? and name = ?");
+				ResultSet rs1 = st1.executeQuery("select * from history where userName = ? ");
 				
 				
 			     User ve = null;

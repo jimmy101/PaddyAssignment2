@@ -54,8 +54,7 @@
 				</div>
 			<br>To view Customer Purchases History enter details below 
 	<br></br><s:form action="userHistory">
-	<s:textfield name="name" label ="Customer name"/>
-	<s:textfield name="id" label ="Customer Id name" value =""/>
+	<s:textfield name="userName" label ="Customer User name"/>
 	<s:submit value ="Enter"/>	
 	</s:form>
 	
