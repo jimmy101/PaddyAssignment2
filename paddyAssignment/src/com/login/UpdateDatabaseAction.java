@@ -13,16 +13,16 @@ public class UpdateDatabaseAction extends ActionSupport{
 
 	
 	private static final long serialVersionUID = -453350948722456448L;
-	private String title ;
+	private String title,name ;
 	private String manufacturer,time;
-	private int quantity,purchases_id,item_id;
+	private int quantity,purchases_id,item_id,id;
 	private float price;
 	private ArrayList<PurchasesBean> purchasesList;
 	private double total = 0.0;
 	private ArrayList<Double> fianTotal;
 	
 	public String execute() {
-		
+		id=3;
 		purchasesList = new ArrayList<PurchasesBean>();
 		fianTotal = new ArrayList<Double>();
 		String ret = ERROR;
@@ -51,7 +51,7 @@ public class UpdateDatabaseAction extends ActionSupport{
 				
 			}
 			setTotal();
-				PreparedStatement ps=conn1.prepareStatement("insert into history values(?,?,?,?,?,?,?)");
+				PreparedStatement ps=conn1.prepareStatement("insert into history values(?,?,?,?,?,?,?,?)");
 				while (rs.next()) {
 				ps.setInt(1, getItem_id());
 				ps.setInt(2, rs.getInt(1));
@@ -60,10 +60,13 @@ public class UpdateDatabaseAction extends ActionSupport{
 				ps.setFloat(5,rs.getFloat(4));
 				ps.setInt(6,rs.getInt(5));
 				ps.setString(7, getTime());
+				ps.setInt(8, getId());
 				ps.executeUpdate();
-			
-				
+							
 				}
+				
+				
+				
 			
 			//PreparedStatement ps2=conn1.prepareStatement("Delete from purchases where purchases_id >= 0");
 			//ps2.executeUpdate();
@@ -179,6 +182,22 @@ public class UpdateDatabaseAction extends ActionSupport{
 
 	public void setFianTotal(ArrayList<Double> fianTotal) {
 		this.fianTotal = fianTotal;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

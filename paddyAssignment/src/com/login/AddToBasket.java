@@ -48,13 +48,13 @@ public class AddToBasket extends ActionSupport{
 			String sql = "SELECT * FROM item WHERE";
 			sql+=" item_id = ? " ;
 			PreparedStatement ps1 = conn1.prepareStatement(sql);
-			ps1.setInt(1, getItem_id());	        	 	         
+			ps1.setInt(1, getId());	        	 	         
 			ResultSet rs1 = ps1.executeQuery();
 
 			Item ve = null;
 			while (rs1.next()) {
 
-
+				System.out.println(rs1.getInt(1)+"ddddddddddddddddddddddddddddddd");
 
 				ve = new Item();
 				ve.setItem_id(rs1.getInt(1));
