@@ -2,6 +2,7 @@ package com.login;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -12,13 +13,14 @@ public class GetCustomerHistory extends ActionSupport{
 
 	private static final long serialVersionUID = 6446985129361884948L;
 	private int id;
-	private String name;
-	private ArrayList<User> userList;
+	private String userName,name;
+	private ArrayList<HistoryBean> historyList;
+	private HistoryBean hist;
 
 	public String execute(){
 		 String ret = ERROR;
 	      Connection conn1 = null;
-	  userList  =  new ArrayList<User>();
+	  historyList  =  new ArrayList<HistoryBean>();
 
 	      try {
 	        
@@ -26,21 +28,32 @@ public class GetCustomerHistory extends ActionSupport{
 				Class.forName("com.mysql.jdbc.Driver");
 				conn1 = DriverManager.getConnection(URL, "root", "root");
 				
-				Statement st1 = conn1.createStatement(); 
-				ResultSet rs1 = st1.executeQuery("select * from history where userName = ? ");
-				
-				
-			     User ve = null;
-				while (rs1.next()) {
-					ve = new User();
-					ve.setId(rs1.getInt(1));
-					ve.setName(rs1.getString(2));
+				PreparedStatement ps221=conn1.prepareStatement("select * from history where name = ?");
+				ps221.setString(1, getName());
+				ResultSet rs12 = ps221.executeQuery();
+				HistoryBean hist = null;
+				while(rs12.next()){
+					System.out.println("YYYYYYYYYYYYYYYYYYYY"+rs12.getString(3));
+					hist= new HistoryBean();
 					
-									
-					userList.add(ve);
+					hist.setItem_id(rs12.getInt(1));
+					hist.setPurchases_id(rs12.getInt(2));
+					hist.setTitle(rs12.getString(3));
+					hist.setManufacturer(rs12.getString(4));
+					hist.setPrice(rs12.getDouble(5));
+					hist.setQuantity(rs12.getInt(6));
+					hist.setModifiedTime(rs12.getString(7));
+					hist.setId(rs12.getInt(8));
+					hist.setName(rs12.getString(9));
 					
+					historyList.add(hist);
 					
 				}
+									
+					//userList.add(ve);
+					
+					
+				
 				return SUCCESS;
 				
 			} catch (Exception e) {
@@ -65,6 +78,26 @@ public class GetCustomerHistory extends ActionSupport{
 		this.id = id;
 	}
 
+	
+
+	
+
+	public ArrayList<HistoryBean> getHistoryList() {
+		return historyList;
+	}
+
+	public void setHistoryList(ArrayList<HistoryBean> historyList) {
+		this.historyList = historyList;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -73,14 +106,14 @@ public class GetCustomerHistory extends ActionSupport{
 		this.name = name;
 	}
 
-	public ArrayList<User> getUserList() {
-		return userList;
+	public HistoryBean getHist() {
+		return hist;
 	}
 
-	public void setUserList(ArrayList<User> userList) {
-		this.userList = userList;
+	public void setHist(HistoryBean hist) {
+		this.hist = hist;
 	}
 	
-
+	
 }
 

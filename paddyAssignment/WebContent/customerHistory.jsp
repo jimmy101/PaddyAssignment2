@@ -24,39 +24,35 @@
 		<table class="table table-stripec" "id="contact" border="data-height=""100">
 			<thead>
 				<tr>
-					<th> Id</th>
-					<th>Name</th>
-					<th>Street number</th>
-					<th>Town.</th>
-					<th>Country</th>
-					<th>Email</th>
-					<th>Username.</th>
-					<th>Password.</th>
+					<th>Product title</th>
+					<th>manufacturer</th>
+					<th>Product price</th>
+					<th>quantity.</th>
+					<th>Purchases Date</th>
+					
 					
 				</tr>
 				<p></p>
 
-				<s:iterator value="userList">
+				<s:iterator value="historyList">
 					<tr>
-						<td><s:property value="id" /></td>
-						<td><s:property value="name" /></td>
-						<td><s:property value="address1" /></td>
-						<td><s:property value="address2" /></td>
-						<td><s:property value="address3" /></td>						
-						<td><s:property value="Email" /></td>
-						<td><s:property value="userName" /></td>
-						<td><s:property value="password" /></td>
+						<td><s:property value="title" /></td>
+						<td><s:property value="manufacturer" /></td>
+						<td><s:property value="price" /></td>
+						<td><s:property value="quantity" /></td>												
+						<td><s:property value="ModifiedTime" /></td>
+						
 						
 					</tr>
 				</s:iterator>
 				</thead>
 				</table>
 				</div>
-			<br>To view Customer Purchases History enter details below 
-	<br></br><s:form action="userHistory">
-	<s:textfield name="name" label ="Customer User name"/>
-	<s:submit value ="Enter"/>	
+				
+		<s:form action= "home">	 	  
+	<s:submit value="home" align="left" />	
 	</s:form>
+		
 	
 
 </body>
