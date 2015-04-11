@@ -33,7 +33,7 @@ public class ComputersAction extends ActionSupport{
 				conn1 = DriverManager.getConnection(URL, "root", "root");
 				
 				Statement st1 = conn1.createStatement(); 
-				ResultSet rs1 = st1.executeQuery("select * from item where category = 'computers' or'phones'");
+				ResultSet rs1 = st1.executeQuery("select * from item where category = 'computers'and quantity > 0 ");
 				
 				
 			     Item ve = null;
