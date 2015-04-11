@@ -93,6 +93,9 @@ public class UpdateDatabaseAction extends ActionSupport{
 			PreparedStatement ps2=conn1.prepareStatement("Delete from purchases where purchases_id >= 0");
 			ps2.executeUpdate();
 			
+			PreparedStatement ps23=conn1.prepareStatement("Delete * from purchases email");
+			ps2.executeUpdate();
+			
 				
 			
 			
