@@ -11,8 +11,8 @@
 <s:form action="viewStock">
 		<s:submit value="View Stock"></s:submit>
 	</s:form>
-	<s:form action="updateStock">
-		<s:submit value="Update Stock"></s:submit>
+	<s:form action="addnewstock">
+		<s:submit value="Add new Stock"></s:submit>
 	</s:form>
 	<s:form action="viewusers">
 		<s:submit value="View Usere"></s:submit>

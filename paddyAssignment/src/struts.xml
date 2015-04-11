@@ -22,11 +22,11 @@
 		
 		<action name="viewStock" class="com.login.DisplayStock"
 			method="execute">
-			<result name="success">/success.jsp</result>
+			<result name="success">/displaystockadmin.jsp</result>
 			<result name="error">/loginfail.jsp</result>
 		</action>
 		
-		<action name="updateStock" class="com.login.Success"
+		<action name="addnewstock" class="com.login.Success"
 			method="execute">
 			<result name="success">/updateStock.jsp</result>
 			<result name="error">/loginfail.jsp</result>
@@ -117,6 +117,30 @@
 	   <action name="deletefromdatabase" class="com.login.DeleteFromOrderAction"
 			method="execute">
 			<result name="success">/finalcheckout.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		 <action name="home" class="com.login.HomeAction"
+			method="execute">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		 <action name="viewusers" class="com.login.Success"
+			method="execute">
+			<result name="success">/customerlist.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		 <action name="getCustomers" class="com.login.GetCustomerListAction"
+			method="execute">
+			<result name="success">/customerlist.jsp</result>
+			<result name="error">/loginfail.jsp</result>
+		</action>
+		
+		 <action name="userHistory" class="com.login.GetCustomerHistory"
+			method="execute">
+			<result name="success">/customerlist.jsp</result>
 			<result name="error">/loginfail.jsp</result>
 		</action>
 		

@@ -19,8 +19,11 @@ update Stopk page
 <s:textfield name="category" label="Category"></s:textfield>
 <s:textfield name="image" label="Image"></s:textfield>
 <s:textfield name="quantity" label="Quantity"></s:textfield>
-
 <s:submit value="Register Item"></s:submit>
 </s:form>
+
+<s:form action= "home">	 	  
+	<s:submit value="home" align="left" />	
+	</s:form>
 </body>
 </html>
